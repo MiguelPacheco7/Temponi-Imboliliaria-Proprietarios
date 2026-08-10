@@ -5,15 +5,33 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
   body {
     @apply font-sans text-ink-600 bg-sand antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-display text-ink-900;
   }
+}
+
+/* Necessário para o Lenis gerenciar a rolagem sem travar */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important; /* Desativa a rolagem nativa para evitar conflito */
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  scroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none; /* Evita lentidão ao passar o mouse sobre mapas ou vídeos */
 }
 
 @layer components {
@@ -89,3 +107,9 @@
     text-shadow: 0 2px 16px rgba(15, 18, 24, 0.12);
   }
 }
+
+/* #9b884e */
+/* #0c0c0c */
+/* #333333 */
+/* #161616 */
+/* #f3f3f3 */

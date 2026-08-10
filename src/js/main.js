@@ -1,5 +1,41 @@
 import '../css/styles.css'
 
+let lenis;
+
+if (typeof Lenis !== 'undefined') {
+  lenis = new Lenis({
+    lerp: 0.1,               // 0.1 é o padrão ideal. Menor que isso (ex: 0.05) dá muito delay.
+    wheelMultiplier: 1,      // Mantém a força padrão do mouse
+    normalizeWheel: true,    // CRÍTICO: Normaliza os picos de rolagem do mouse e elimina o "agarro"
+    smoothWheel: true,
+    smoothTouch: false,      // Mantém false para não estragar o touch nativo de celulares
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Links de âncora ajustados para usar o lerp configurado
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+
+      lenis.scrollTo(targetId, {
+        offset: -80,         // Ajuste barra de navegação fixa (ex: -80)
+        immediate: false,
+      });
+    });
+  });
+}
+
+const yearSpan = document.getElementById('currentYear');
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal()
   initSmoothScroll()
