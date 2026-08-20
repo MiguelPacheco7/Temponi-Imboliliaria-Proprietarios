@@ -18,22 +18,25 @@
   <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-transparent">
     <nav class="container-section flex items-center justify-between h-20">
       <a href="#hero" class="flex items-center gap-2 shrink-0">
+        <!-- Logo com as classes brightness-0 e invert para começar branca -->
         <img src="./src/assets/logo imobiliaria temponi.png" alt="Temponi Imobiliária"
-          class="h-16 md:h-20 lg:h-28 object-contain" loading="eager" />
+          class="h-16 md:h-20 lg:h-28 object-contain transition-all duration-300 brightness-0 invert" loading="eager" />
       </a>
 
       <div class="hidden md:flex items-center gap-8">
-        <a href="#problema" class="nav-link">Como funciona</a>
-        <a href="#diferenciais" class="nav-link">Diferenciais</a>
-        <a href="#contato" class="nav-link">Falar com consultor</a>
+        <!-- Links com text-white inicial -->
+        <a href="#problema" class="nav-link text-white hover:text-brand-400">Como funciona</a>
+        <a href="#diferenciais" class="nav-link text-white hover:text-brand-400">Diferenciais</a>
+        <a href="#contato" class="nav-link text-white hover:text-brand-400">Falar com consultor</a>
       </div>
 
       <a href="#contato" class="hidden md:inline-flex btn-primary !px-6 !py-3 !text-sm">
         Quero avaliar meu imóvel
       </a>
 
+      <!-- Botão mobile ajustado para começar transparente/branco -->
       <button data-nav-toggle aria-expanded="false" aria-label="Abrir menu"
-        class="md:hidden w-11 h-11 rounded-xl border border-brand-200 bg-white/70 backdrop-blur flex items-center justify-center text-navy-700">
+        class="md:hidden w-11 h-11 rounded-xl border border-white/20 bg-white/10 backdrop-blur flex items-center justify-center text-white transition-colors duration-300">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -42,134 +45,78 @@
 
     <div data-nav-menu
       class="hidden md:hidden flex-col container-section pb-6 gap-3 bg-sand/95 backdrop-blur-md border-t border-brand-100">
-      <a href="#problema" class="py-2 nav-link">Como funciona</a>
-      <a href="#diferenciais" class="py-2 nav-link">Diferenciais</a>
-      <a href="#contato" class="py-2 nav-link">Falar com consultor</a>
+      <a href="#problema" class="py-2 nav-link text-navy-700">Como funciona</a>
+      <a href="#diferenciais" class="py-2 nav-link text-navy-700">Diferenciais</a>
+      <a href="#contato" class="py-2 nav-link text-navy-700">Falar com consultor</a>
       <a href="#contato" class="btn-primary !px-5 !py-3 !text-sm mt-2 w-full">Quero avaliar meu imóvel</a>
     </div>
   </header>
 
   <main>
+    <section id="hero-bg-proprietarios"
+      class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden hero-bg-proprietarios bg-cover bg-center bg-no-repeat">
 
-    <section id="hero"
-      class="relative hero-gradient-proprietarios pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-pattern-grain">
-      <div class="absolute inset-0 bg-pattern-dots opacity-60 pointer-events-none"></div>
+      <!-- O Gradiente Inteligente (Escurece a imagem para dar leitura ao texto) -->
       <div
-        class="absolute -top-16 -left-16 w-[26rem] h-[26rem] rounded-full bg-brand-200/30 blur-3xl pointer-events-none animate-float">
-      </div>
-      <div class="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-navy-100/40 blur-3xl pointer-events-none">
+        class="absolute inset-0 bg-gradient-to-b from-ink-950/95 via-ink-950/80 to-ink-900/40 lg:bg-gradient-to-r lg:from-ink-950 lg:via-ink-950/90 lg:to-transparent z-0">
       </div>
 
-      <div class="container-section relative">
-        <div class="grid lg:grid-cols-2 gap-14 items-center">
-          <div class="space-y-8">
-            <div class="reveal opacity-0">
-              <span class="badge bg-brand-100 text-brand-700 border border-brand-200 gap-2">
-                <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
-                Gestão Patrimonial · Tradição de 30 anos
-              </span>
+      <!-- z-10 para o conteúdo ficar acima do gradiente, usando max-w-3xl para o texto não esticar demais -->
+      <div class="container-section relative z-10">
+        <div class="max-w-3xl space-y-8">
+
+          <div class="reveal opacity-0">
+            <span class="badge bg-brand-500/20 text-brand-200 border border-brand-500/30 gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+              Gestão Patrimonial · Tradição de 30 anos
+            </span>
+          </div>
+
+          <!-- Textos ajustados para modo escuro -->
+          <h1
+            class="reveal opacity-0 delay-100 text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-[1.08] tracking-tight">
+            <span class="block text-brand-400">Seu imóvel em BH não precisa ficar parado.</span>
+            <span class="block mt-2 text-white">Ele precisa da <span class="relative text-brand-400">gestão
+                certa.</span></span>
+          </h1>
+
+          <p class="reveal opacity-0 delay-200 section-subtitle !text-xl !text-sand/80">
+            Anuncie com quem combina <strong class="text-white">30 anos de segurança jurídica</strong> com um
+            ecossistema completo para
+            <strong class="text-white">valorizar, reformar e rentabilizar</strong> seu patrimônio sem dor de cabeça.
+          </p>
+
+          <div class="reveal opacity-0 delay-300 flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="#contato" class="btn-primary text-center">
+              Quero Avaliar e Anunciar
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+            <a href="#diferenciais"
+              class="btn-secondary !bg-transparent !text-white !border-white/20 hover:!bg-white/10 hover:!border-white text-center">
+              Conhecer os diferenciais
+            </a>
+          </div>
+
+          <!-- Contadores em modo escuro -->
+          <div class="reveal opacity-0 delay-400 grid grid-cols-3 gap-6 pt-10 border-t border-brand-500/20">
+            <div>
+              <div class="font-display text-4xl font-bold text-brand-400">30<span class="text-white">+</span></div>
+              <div class="text-sm text-sand/60 mt-1">Anos de tradição em BH</div>
             </div>
-
-            <h1
-              class="reveal opacity-0 delay-100 text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-[1.08] tracking-tight">
-              <span class="block text-brand-500">Seu imóvel em BH não precisa ficar parado.</span>
-              <span class="block mt-2 text-ink-900">Ele precisa da <span class="relative text-brand-600">gestão
-                  certa.</span></span>
-            </h1>
-
-            <p class="reveal opacity-0 delay-200 section-subtitle !text-xl !text-navy-700">
-              Anuncie com quem combina <strong>30 anos de segurança jurídica</strong> com um ecossistema completo para
-              <strong>valorizar, reformar e rentabilizar</strong> seu patrimônio sem dor de cabeça.
-            </p>
-
-            <div class="reveal opacity-0 delay-300 flex flex-col sm:flex-row gap-4 pt-2">
-              <a href="#contato" class="btn-primary text-center">
-                Quero Avaliar e Anunciar Meu Imóvel
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
-                  </path>
-                </svg>
-              </a>
-              <a href="#diferenciais" class="btn-secondary text-center">
-                Conhecer os diferenciais
-              </a>
+            <div>
+              <div class="font-display text-4xl font-bold text-brand-400">2.500<span class="text-white">+</span>
+              </div>
+              <div class="text-sm text-sand/60 mt-1">Imóveis geridos</div>
             </div>
-
-            <div class="reveal opacity-0 delay-400 grid grid-cols-3 gap-6 pt-10 border-t border-brand-200/70">
-              <div>
-                <div class="font-display text-4xl font-bold text-brand-600">30<span class="text-navy-700">+</span></div>
-                <div class="text-sm text-ink-500 mt-1">Anos de tradição em BH</div>
-              </div>
-              <div>
-                <div class="font-display text-4xl font-bold text-brand-600">2.500<span class="text-navy-700">+</span>
-                </div>
-                <div class="text-sm text-ink-500 mt-1">Imóveis geridos</div>
-              </div>
-              <div>
-                <div class="font-display text-4xl font-bold text-brand-600">98<span class="text-navy-700">%</span></div>
-                <div class="text-sm text-ink-500 mt-1">Clientes satisfeitos</div>
-              </div>
+            <div>
+              <div class="font-display text-4xl font-bold text-brand-400">98<span class="text-white">%</span></div>
+              <div class="text-sm text-sand/60 mt-1">Clientes satisfeitos</div>
             </div>
           </div>
 
-          <div class="reveal opacity-0 delay-200 relative">
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-navy-900/10 border-4 border-white">
-              <img
-                src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=elegant%20luxury%20Brazilian%20real%20estate%20property%20facade%20Bel%C3%A9m%20Horizonte%20architecture%20golden%20hour%20sunset%20beautiful%20house%20modern%20apartment%20premium&image_size=portrait_4_3"
-                alt="Imóvel de alto padrão em BH" class="w-full h-[520px] object-cover" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-900/20 to-transparent"></div>
-              <!--
-              <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur rounded-2xl p-5 shadow-2xl border border-brand-100">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p class="text-xs font-bold text-brand-600 uppercase tracking-wider mb-1">Anúncio destaque</p>
-                    <p class="font-display font-bold text-navy-800 text-lg">Apartamento · Savassi</p>
-                    <p class="text-sm text-ink-500 mt-0.5">3 suítes · 142m² · 2 vagas</p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-xs text-ink-400 line-through">R$ 1.450.000</p>
-                    <p class="font-display text-2xl font-bold text-brand-600">R$ 1.380.000</p>
-                  </div>
-                </div>
-                <div class="mt-4 pt-4 border-t border-ink-100 flex items-center gap-2 text-xs text-emerald-700 font-semibold bg-emerald-50/60 -mx-5 -mb-5 px-5 py-3 rounded-b-2xl">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
-                  Venda acelerada em 37 dias · Programa Temponi Valoriza
-                </div>
-              </div>-->
-            </div>
-
-            <div
-              class="hidden lg:block absolute -left-10 top-16 bg-white rounded-2xl shadow-xl p-4 border border-brand-100 w-64">
-              <div class="flex items-start gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-ink-800">+12% de valorização</p>
-                  <p class="text-xs text-ink-500 mt-0.5">Média após reforma do Valoriza</p>
-                </div>
-              </div>
-            </div>
-<!--
-            <div
-              class="hidden lg:block absolute -right-6 bottom-32 bg-white rounded-2xl shadow-xl p-4 border border-brand-100 w-56">
-              <div class="flex items-center gap-2 mb-2">
-                <div class="flex -space-x-2">
-                  <div class="w-7 h-7 rounded-full bg-gradient-to-br from-brand-300 to-brand-600 border-2 border-white">
-                  </div>
-                  <div class="w-7 h-7 rounded-full bg-gradient-to-br from-navy-300 to-navy-600 border-2 border-white">
-                  </div>
-                  <div class="w-7 h-7 rounded-full bg-gradient-to-br from-pink-300 to-pink-600 border-2 border-white">
-                  </div>
-                </div>
-                <div class="text-xs text-amber-500">★★★★★</div>
-              </div>
-              <p class="text-xs text-navy-700 italic">"Vendi em 2 meses com 15% acima da avaliação."</p>
-            </div>-->
-          </div>
         </div>
       </div>
     </section>
@@ -340,20 +287,6 @@
               Nós organizamos a melhoria e você só acerta o investimento <strong class="text-navy-800">depois</strong>,
               direto no fluxo de locação ou venda.
             </p>
-            <div class="mt-6 pt-6 border-t border-ink-100 flex items-center gap-3">
-              <div class="flex -space-x-3">
-                <div
-                  class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-300 to-pink-500 border-2 border-white shadow-sm">
-                </div>
-                <div
-                  class="w-9 h-9 rounded-full bg-gradient-to-br from-navy-300 to-navy-600 border-2 border-white shadow-sm">
-                </div>
-                <div
-                  class="w-9 h-9 rounded-full bg-gradient-to-br from-emerald-300 to-emerald-600 border-2 border-white shadow-sm">
-                </div>
-              </div>
-              <p class="text-sm text-ink-500 font-medium">+1.200 reformas realizadas</p>
-            </div>
           </article>
 
           <article

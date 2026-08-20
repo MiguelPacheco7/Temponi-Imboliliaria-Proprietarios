@@ -138,17 +138,53 @@ function initMobileNav() {
 
 function initHeaderScroll() {
   const header = document.querySelector('header')
+  const logo = document.querySelector('header img')
+  const navLinks = document.querySelectorAll('header .hidden.md\\:flex .nav-link')
+  const mobileBtn = document.querySelector('[data-nav-toggle]')
+  
   if (!header) return
 
   const onScroll = () => {
     if (window.scrollY > 20) {
+      // 1. Header fica branco
       header.classList.add('shadow-lg', 'bg-white/95', 'backdrop-blur-md')
       header.classList.remove('bg-transparent')
+      
+      // 2. Logo ganha cor (remove o filtro que a deixava branca)
+      if(logo) logo.classList.remove('brightness-0', 'invert')
+      
+      // 3. Links ficam escuros
+      navLinks.forEach(link => {
+        link.classList.remove('text-white')
+      })
+      
+      // 4. Botão mobile fica com estilo escuro
+      if(mobileBtn) {
+        mobileBtn.classList.remove('bg-white/10', 'text-white', 'border-white/20')
+        mobileBtn.classList.add('bg-white/70', 'text-navy-700', 'border-brand-200')
+      }
+
     } else {
+      // 1. Header volta a ser transparente
       header.classList.remove('shadow-lg', 'bg-white/95', 'backdrop-blur-md')
+      header.classList.add('bg-transparent')
+      
+      // 2. Logo volta a ser branca
+      if(logo) logo.classList.add('brightness-0', 'invert')
+      
+      // 3. Links voltam a ser brancos
+      navLinks.forEach(link => {
+        link.classList.add('text-white')
+      })
+      
+      // 4. Botão mobile volta ao estilo transparente claro
+      if(mobileBtn) {
+        mobileBtn.classList.add('bg-white/10', 'text-white', 'border-white/20')
+        mobileBtn.classList.remove('bg-white/70', 'text-navy-700', 'border-brand-200')
+      }
     }
   }
 
   window.addEventListener('scroll', onScroll, { passive: true })
-  onScroll()
+  onScroll() // Roda uma vez para garantir o estado inicial
 }
